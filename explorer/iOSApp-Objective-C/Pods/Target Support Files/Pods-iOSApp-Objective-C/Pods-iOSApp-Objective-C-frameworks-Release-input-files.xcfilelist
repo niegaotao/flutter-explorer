@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-iOSApp-Objective-C/Pods-iOSApp-Objective-C-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework
