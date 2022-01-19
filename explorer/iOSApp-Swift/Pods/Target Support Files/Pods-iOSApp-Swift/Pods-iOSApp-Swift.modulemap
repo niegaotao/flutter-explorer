@@ -1,6 +1,0 @@
-framework module Pods_iOSApp_Swift {
-  umbrella header "Pods-iOSApp-Swift-umbrella.h"
-
-  export *
-  module * { export * }
-}
