@@ -105,7 +105,7 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
     ), body:Stack(
       children: [
         Container(
-          color: EXUI.mainColor,
+          color: EXUI.backgroundColor,
           child: ListView.builder(
             controller: _scrollController,
             itemBuilder: (context, index){

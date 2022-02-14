@@ -93,7 +93,7 @@ class _OwnerPageState extends State<OwnerPage>  with AutomaticKeepAliveClientMix
     return EXUI.viewController(
         navigationBar:null,
         body:Container(
-      color: _themeColor,
+      color: EXUI.backgroundColor,
       child: Stack(
         children: [
           MediaQuery.removePadding(

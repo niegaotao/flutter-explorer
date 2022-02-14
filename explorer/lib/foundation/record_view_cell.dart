@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:explorer/foundation/exui.dart';
 import 'package:explorer/company/enterprise_list_page.dart';
 
 
@@ -13,8 +14,6 @@ class Record {
   bool isSeparated = true;
   Record({this.icon = "", this.title = "", this.subtitle = "", this.markup = "", this.operation = ""});
 
-  static Color _themeColor = Color.fromRGBO(235, 235, 235, 1.0);
-
   static Widget itemForRow(BuildContext context, Record record) {
     return  RecordViewcell(record, (ctxs){
       Navigator.push(context, MaterialPageRoute(builder: (context){
@@ -24,7 +23,7 @@ class Record {
   }
 
   static Widget separatorForRow(){
-    return Container(height: 10, width: 414, color: _themeColor);
+    return Container(height: 10, width: 414, color: EXUI.backgroundColor);
   }
 }
 
@@ -81,8 +80,8 @@ class RecordViewcell extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: ctxs.isSeparated ? 1 : 0,
-                  color: Color.fromRGBO(240, 240, 240, 1),
+                  height: ctxs.isSeparated ? EXUI.pixel : 0,
+                  color: EXUI.separatorColor,
                 ))
           ],
         ),

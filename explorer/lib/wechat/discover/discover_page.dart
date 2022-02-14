@@ -50,7 +50,7 @@ class _DiscoverPageState extends State<DiscoverPage> with AutomaticKeepAliveClie
             shadowColor:Color.fromRGBO(0, 0, 0, 0),
             backgroundColor: _themeColor),
         body:Container(
-          color: _themeColor,
+          color: EXUI.backgroundColor,
           child: ListView(
             children: [
               Record.itemForRow(context, records[0]),

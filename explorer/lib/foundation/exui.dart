@@ -11,7 +11,7 @@ class EXUI {
   static Color backgroundColor = Color.fromRGBO(247, 247, 247, 1.0);
   static Color naviBackgroundColor = Color.fromRGBO(255, 255, 255, 1.0);
   static Color naviForegroundColor = Color.fromRGBO(22, 22, 22, 1.0);
-  static Color mainColor = Color.fromRGBO(235, 235, 235, 1);
+  static Color mainColor = Color.fromRGBO(233, 64, 0, 1);
 
   static Color separatorColor = Color.fromRGBO(240, 240, 240, 1);
 

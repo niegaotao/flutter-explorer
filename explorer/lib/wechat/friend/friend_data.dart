@@ -107,13 +107,13 @@ class Friend {
   Friend(this.icon, this.avatar, this.name, this.letter);
 
   static Widget itemForRow(Friend friend) {
-    return FriendViewcell(friend);
+    return FriendViewCell(friend);
   }
 }
 
-class FriendViewcell extends StatelessWidget {
+class FriendViewCell extends StatelessWidget {
   final Friend ctxs;
-  FriendViewcell(this.ctxs);
+  FriendViewCell(this.ctxs);
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +126,7 @@ class FriendViewcell extends StatelessWidget {
             Column(
               children: [
                 ctxs.isLettered ? Container(
-                  color: Color.fromRGBO(210, 210, 210, 1),
+                  color: EXUI.backgroundColor,
                   height: 32,
                   padding: EdgeInsets.only(left: 16, right: 16),
                   alignment: Alignment.centerLeft,
@@ -160,8 +160,8 @@ class FriendViewcell extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: ctxs.isSeparated ? 1 : 0,
-                  color: EXUI.mainColor,
+                  height: ctxs.isSeparated ? EXUI.pixel : 0,
+                  color: EXUI.separatorColor,
                 ))
           ],
         ),

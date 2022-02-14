@@ -1,3 +1,4 @@
+import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
 
 class OfferPage extends StatefulWidget {
@@ -10,20 +11,19 @@ class OfferPage extends StatefulWidget {
 class _OfferPageState extends State<OfferPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          leading: GestureDetector(
-            child: Icon(Icons.arrow_back_ios, color: Colors.black),
-            onTapUp: (details){
-              Navigator.pop(context);
-            },
-          ),
-          title: Text("Offer页面",
-              style: TextStyle(color: Colors.black)
-          ),
-          shadowColor:Color.fromRGBO(0, 0, 0, 0),
-          backgroundColor: Color.fromRGBO(255, 255, 255, 1)),
-      body: Text("Offer页面"),
+    return EXUI.viewController(navigationBar: AppBar(
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back_ios, color: Colors.white),
+          onTapUp: (details){
+            Navigator.pop(context);
+          },
+        ),
+        title: Text("Offer页面",
+            style: TextStyle(color: Colors.white)
+        ),
+        shadowColor:Color.fromRGBO(0, 0, 0, 0),
+        backgroundColor: EXUI.mainColor),
+    body: Text("Offer2222")
     );
   }
 }

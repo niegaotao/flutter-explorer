@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
 import 'offer_page.dart';
 
@@ -10,7 +13,7 @@ class EnterprisePage extends StatefulWidget {
 }
 
 class Enterprise {
-  String name = "武汉心动校招科技责任公司";
+  String name = "武汉追光科技责任公司";
   String avatar = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic209.nipic.com%2Ffile%2F20190310%2F18383466_163939408907_2.jpg&refer=http%3A%2F%2Fpic209.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1638069408&t=bae01053899185c979cf473f82921d13";
   String phone = "027-82823749";
   String mail = "xindongxiaozhao@xdxz.com";
@@ -34,28 +37,25 @@ class _EnterprisePageState extends State<EnterprisePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            leading: GestureDetector(
-              child: Icon(Icons.arrow_back_ios, color: Colors.black),
-              onTapUp: (details){
-                Navigator.pop(context);
-              },
-            ),
-            title: Text("2020校园招聘精选岗位推荐",
-                style: TextStyle(color: Colors.black)
-            ),
-            shadowColor:Color.fromRGBO(0, 0, 0, 0),
-            backgroundColor: Color.fromRGBO(255, 255, 255, 1)),
-        body: Stack(
-          alignment: Alignment.center,
-          fit: StackFit.expand,
-          children: [
-            createBody(),
-            createFooter(),
-          ],
-        )
-    );
+    return EXUI.viewController(navigationBar: AppBar(
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back_ios, color: Colors.white),
+          onTapUp: (details){
+            Navigator.pop(context);
+          },
+        ),
+        title: Text("2020校园招聘精选岗位推荐",
+            style: TextStyle(color: Colors.white)
+        ),
+        shadowColor:Color.fromRGBO(0, 0, 0, 0),
+        backgroundColor: EXUI.mainColor), body: Stack(
+      alignment: Alignment.center,
+      fit: StackFit.expand,
+      children: [
+        createBody(),
+        createFooter(),
+      ],
+    ));
   }
 
   Widget createBody(){
@@ -82,7 +82,7 @@ class _EnterprisePageState extends State<EnterprisePage> {
                             color: Color.fromRGBO(50, 50, 50, 1.0),
                           ),),
                           Text("100-499人   B轮融资   互联网", style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             color: Color.fromRGBO(100, 100, 100, 1.0),
                           ),),
                         ],
@@ -266,11 +266,18 @@ class _EnterprisePageState extends State<EnterprisePage> {
         left: 16,
         right: 14,
         bottom: 34,
-        child: Container(
-          width: 40,
-          height: 40,
-          color: Colors.red,
-        ));
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(4),
+          child: Container(
+            width: 40,
+            height: 40,
+            color: EXUI.mainColor,
+            child: Center(
+              child: Text("投递简历",style: TextStyle(color: Colors.white),),
+            ),
+          ),
+        )
+    );
   }
 
   Widget itemForRow(BuildContext context, int index) {
@@ -344,7 +351,7 @@ class _EnterprisePageState extends State<EnterprisePage> {
                   child: Container(
                     width: 100,
                     height: 32,
-                    color: Color.fromRGBO(6, 183, 180, 1),
+                    color: EXUI.mainColor,
                     alignment: Alignment.center,
                     child: Text("投递简历", style: TextStyle(color: Colors.white, fontSize: 14),),
                   ),

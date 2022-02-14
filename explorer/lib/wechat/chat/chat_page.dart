@@ -107,7 +107,7 @@ class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<
       centerTitle: true,
       title: const Text("微信", style: TextStyle(color: Colors.black)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),
-      backgroundColor: _themeColor,
+      backgroundColor: EXUI.backgroundColor,
       actions: [
         Container(margin: EdgeInsets.only(right: 16),
         child: PopupMenuButton(

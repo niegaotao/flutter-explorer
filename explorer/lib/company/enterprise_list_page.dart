@@ -1,4 +1,5 @@
 // TODO Implement this library.
+import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
 import 'package:explorer/company/enterprise_page.dart';
 
@@ -13,25 +14,23 @@ class _EnterpriseListPageState extends State<EnterpriseListPage> {
   @override
   List items = List.from([]);
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          leading: GestureDetector(
-            child: Icon(Icons.arrow_back_ios, color: Colors.black),
-            onTapUp: (details){
-              Navigator.pop(context);
-            },
-          ),
-          title: Text("2020校园招聘精选岗位推荐",
-              style: TextStyle(color: Colors.black)
-          ),
-          shadowColor:Color.fromRGBO(0, 0, 0, 0),
-          backgroundColor: Color.fromRGBO(255, 255, 255, 1)),
-      body: ListView.separated(
-        itemBuilder: itemForRow,
-        separatorBuilder: separatorForRow,
-        itemCount: 4,
-      )
-    );
+    return EXUI.viewController(navigationBar: AppBar(
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back_ios, color: Colors.white),
+          onTapUp: (details){
+            Navigator.pop(context);
+          },
+        ),
+        title: Text("2022校园招聘精选岗位推荐",
+            style: TextStyle(color: Colors.white)
+        ),
+        shadowColor:Color.fromRGBO(0, 0, 0, 0),
+        backgroundColor: EXUI.mainColor),
+    body: ListView.separated(
+      itemBuilder: itemForRow,
+      separatorBuilder: separatorForRow,
+      itemCount: 4,
+    ));
   }
 
   Widget itemForRow(BuildContext context, int index) {
@@ -62,7 +61,7 @@ class _EnterpriseListPageState extends State<EnterpriseListPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("武汉心动校招科技有限公司",
+                      Text("武汉追光科技有限公司",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 16,
@@ -115,7 +114,7 @@ class _EnterpriseListPageState extends State<EnterpriseListPage> {
   }
 
   Widget separatorForRow(BuildContext context, int index) {
-    return Container(height: 0.5, width: 414, color: const Color.fromRGBO(234, 237, 240, 1.0));
+    return Container(height: EXUI.pixel, width: 414, color: EXUI.separatorColor);
   }
 
   List<Widget> createWidgets() {
