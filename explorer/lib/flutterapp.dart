@@ -94,10 +94,12 @@ class FlutterAppState extends State<FlutterApp> {
               child: ListView(
                 children: [
                   ElementDescriptor.itemForRow(context, container.elements[0]),
-                  ElementDescriptor.separator(),
                   ElementDescriptor.itemForRow(context, container.elements[1]),
+                  ElementDescriptor.separator(),
                   ElementDescriptor.itemForRow(context, container.elements[2]),
                   ElementDescriptor.itemForRow(context, container.elements[3]),
+                  ElementDescriptor.itemForRow(context, container.elements[4]),
+
                 ],
               ),
             )
