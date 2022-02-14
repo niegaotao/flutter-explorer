@@ -1,6 +1,6 @@
-import 'package:explorer/pages/pub/ui.dart';
+import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
-import '../offer/enterprise_list_page.dart';
+import 'package:explorer/company/enterprise_list_page.dart';
 
 class Message {
   int id = 0;
@@ -48,7 +48,7 @@ class MessageViewCell extends StatelessWidget {
       child: Container(
         color: Colors.white,
         height: 56,
-        width: UI.width,
+        width: EXUI.width,
         child: Stack(
           children: [
             Row(
@@ -68,7 +68,7 @@ class MessageViewCell extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: UI.width-70-16,
+                      width: EXUI.width-70-16,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +78,7 @@ class MessageViewCell extends StatelessWidget {
                           ]),
                     ),
                     Container(
-                      width: UI.width-70-16,
+                      width: EXUI.width-70-16,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,

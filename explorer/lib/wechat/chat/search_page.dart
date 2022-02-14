@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../pub/ui.dart';
+import 'package:explorer/foundation/exui.dart';
 
 
 class SearchBar extends StatefulWidget {
@@ -30,7 +30,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget build(BuildContext context) {
 
-    return UI.viewController(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: Colors.black)),
+    return EXUI.viewController(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: Colors.black)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),
       backgroundColor: _themeColor,
       actions: [GestureDetector(

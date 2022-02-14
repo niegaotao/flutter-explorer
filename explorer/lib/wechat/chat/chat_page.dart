@@ -1,15 +1,15 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:explorer/pages/pub/ui.dart';
+import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../pub/message_view_cell.dart';
-import '../pub/toast.dart';
+import 'package:explorer/foundation/message_view_cell.dart';
+import 'package:explorer/foundation/toast.dart';
 import 'package:http/http.dart' as http;
 import '../../future/http_manager.dart';
 import '../chat/search_page.dart';
-import '../offer/enterprise_list_page.dart';
+import 'package:explorer/company/enterprise_list_page.dart';
 
 
 class ChatPage extends StatefulWidget {
@@ -102,8 +102,8 @@ class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<
   Widget build(BuildContext context) {
     super.build(context);
 
-    UI.initialzie(context);
-    return UI.viewController(navigationBar:AppBar(
+    EXUI.initialzie(context);
+    return EXUI.viewController(navigationBar:AppBar(
       centerTitle: true,
       title: const Text("微信", style: TextStyle(color: Colors.black)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),

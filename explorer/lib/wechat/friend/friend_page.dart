@@ -1,11 +1,8 @@
-import 'package:explorer/pages/friend/friend_data.dart';
-import 'package:explorer/pages/discover/discover_page.dart';
-import 'package:explorer/pages/friend/index_bar.dart';
+import 'package:explorer/wechat/friend/friend_data.dart';
+import 'package:explorer/wechat/discover/discover_page.dart';
+import 'package:explorer/wechat/friend/index_bar.dart';
 import 'package:flutter/material.dart';
-import '../friend/friend_data.dart';
-import '../friend/index_bar.dart';
-import '../pub/ui.dart';
-
+import 'package:explorer/foundation/exui.dart';
 
 
 class FriendPage extends StatefulWidget {
@@ -65,7 +62,7 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
         topOffset = topOffset +  (friend.isLettered ? 88 : 56);
       }
 
-      double space = UI.height - UI.topOffset - 44 - 50 - 34;
+      double space = EXUI.height - EXUI.topOffset - 44 - 50 - 34;
       for (int index = 0; index < array.length; index++){
         Friend friend = array[index];
         double bottomOffset = topOffset - friend.topOffset;//cell距离底部的高度
@@ -86,9 +83,9 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
     super.build(context);
 
     Size contentSize = Size(30, 15 * Static.indexs.length.toDouble());
-    UI.initialzie(context);
+    EXUI.initialzie(context);
 
-    return UI.viewController(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: Colors.black)),
+    return EXUI.viewController(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: Colors.black)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),
       backgroundColor: _themeColor,
       actions: [GestureDetector(
@@ -108,7 +105,7 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
     ), body:Stack(
       children: [
         Container(
-          color: UI.mainColor,
+          color: EXUI.mainColor,
           child: ListView.builder(
             controller: _scrollController,
             itemBuilder: (context, index){
@@ -120,7 +117,7 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
         Positioned(
             right: 0,
             top: 2,
-            height: (UI.height - UI.topOffset - 44 - 50 - 34 - contentSize.height)/2.0,
+            height: (EXUI.height - EXUI.topOffset - 44 - 50 - 34 - contentSize.height)/2.0,
             child: Container(
               width: 10,
               color: Colors.red,
@@ -143,7 +140,7 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
         Positioned(
             right: 0,
             bottom: 2,
-            height: (UI.height - UI.topOffset - 44 - 50 - 34 - contentSize.height)/2.0,
+            height: (EXUI.height - EXUI.topOffset - 44 - 50 - 34 - contentSize.height)/2.0,
             child: Container(
               width: 10,
               color: Colors.red,

@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import '../offer/enterprise_list_page.dart';
+import 'package:explorer/company/enterprise_list_page.dart';
 
 
 class Record {

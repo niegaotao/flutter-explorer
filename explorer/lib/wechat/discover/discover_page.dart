@@ -1,11 +1,11 @@
 
 
-import 'package:explorer/pages/profile/profile_page.dart';
+import 'package:explorer/wechat/profile/profile_page.dart';
 import 'package:flutter/material.dart';
-import '../profile/profile_page.dart';
-import '../offer/enterprise_list_page.dart';
-import '../pub/record_view_cell.dart';
-import '../pub/ui.dart';
+import 'package:explorer/wechat/profile/profile_page.dart';
+import 'package:explorer/company/enterprise_list_page.dart';
+import 'package:explorer/foundation/record_view_cell.dart';
+import 'package:explorer/foundation/exui.dart';
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({Key? key}) : super(key: key);
@@ -43,9 +43,9 @@ class _DiscoverPageState extends State<DiscoverPage> with AutomaticKeepAliveClie
       Record record = records[index];
       record.isSeparated = [2, 4,7].contains(index);
     }
-    UI.initialzie(context);
+    EXUI.initialzie(context);
 
-    return UI.viewController(navigationBar:
+    return EXUI.viewController(navigationBar:
         AppBar(title: Text("发现", style: TextStyle(color: Colors.black)),
             shadowColor:Color.fromRGBO(0, 0, 0, 0),
             backgroundColor: _themeColor),

@@ -1,6 +1,6 @@
-
+// TODO Implement this library.
 import 'package:flutter/material.dart';
-import 'enterprise_page.dart';
+import 'package:explorer/company/enterprise_page.dart';
 
 class EnterpriseListPage extends StatefulWidget {
   const EnterpriseListPage({Key? key}) : super(key: key);

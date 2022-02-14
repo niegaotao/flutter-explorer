@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../pub/record_view_cell.dart';
-import '../profile/profile_page.dart';
-import '../offer/enterprise_list_page.dart';
-import '../pub/record_view_cell.dart';
-import '../pub/ui.dart';
+import 'package:explorer/foundation/record_view_cell.dart';
+import 'package:explorer/wechat/profile/profile_page.dart';
+import 'package:explorer/company/enterprise_list_page.dart';
+import 'package:explorer/foundation/record_view_cell.dart';
+import 'package:explorer/foundation/exui.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 
@@ -90,7 +90,7 @@ class _OwnerPageState extends State<OwnerPage>  with AutomaticKeepAliveClientMix
     }
 
 
-    return UI.viewController(
+    return EXUI.viewController(
         navigationBar:null,
         body:Container(
       color: _themeColor,
