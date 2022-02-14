@@ -1,4 +1,3 @@
-// import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:explorer/foundation/exui.dart';
 
@@ -18,9 +17,9 @@ class ElementContexts extends EXRect {
   ElementContexts();
 }
 
-class ElementContainer<T> {
+class ElementContainer<Element> {
   final frame = EXRect();
-  List<T> elements = [];
+  List<Element> elements = [];
 }
 
 class ElementDescriptor {
@@ -88,12 +87,12 @@ class ElementDescriptorView extends StatelessWidget {
               ),
             ),
             Positioned(
-                left: 50,
+                left: 58,
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: descriptor.ctxs.separator ? 1 : 0,
-                  color: Color.fromRGBO(240, 240, 240, 1),
+                  height: descriptor.ctxs.separator ? EXUI.pixel : 0,
+                  color: EXUI.separatorColor,
                 ))
           ],
         ),
