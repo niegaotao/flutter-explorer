@@ -40,8 +40,7 @@ import UIKit
                 vc.present(self.picker, animated:true)
             }
             else if call.method == "NXAssetsViewController" {
-                NXAsset.album(minOfAssets: 1, maxOfAssets: 18, image: (0, 18, true), video: (0, 18, true), isMixable: true, isAutoclosed: true, mediaType: .unknown, selectedIdentifiers: [], outputResize: CGSize(width: 1920, height: 1920), outputResizeBy: "area", outputUIImage: true, clips: [], videoClipsAllowed: false, videoClipsDuration: 15, videoFileExtensions: [".mov", ".mp4"], footer: (false, false, true), navigation: .present, naviController: EXApp.naviController, openAllowed: true, closeAllowed: true, isAnimated: true) { action, value in
-                }
+                NXActionView.alert(title: "温馨提示", subtitle: "暂时没有实现吗", actions: ["好的"], completion: nil)
             }
         });
         
