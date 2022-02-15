@@ -101,8 +101,8 @@ class MessageViewCell extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: 0.5,
-                  color: Color.fromRGBO(240, 240, 240, 1),
+                  height: EXUI.pixel,
+                  color: EXUI.separatorColor,
                 ))
           ],
         ),

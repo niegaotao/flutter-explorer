@@ -23,6 +23,7 @@ class _OfferPageState extends State<OfferPage> {
         ),
         shadowColor:Color.fromRGBO(0, 0, 0, 0),
         backgroundColor: EXUI.mainColor),
+    separator: false,
     body: Text("Offer2222")
     );
   }

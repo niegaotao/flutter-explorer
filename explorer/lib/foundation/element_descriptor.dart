@@ -17,8 +17,12 @@ class ElementContexts extends EXRect {
   ElementContexts();
 }
 
-class ElementContainer<Element> {
+class ElementWrapper<Element> {
   final frame = EXRect();
+  List<Element> elements = [];
+}
+
+class ElementArray<Element> {
   List<Element> elements = [];
 }
 

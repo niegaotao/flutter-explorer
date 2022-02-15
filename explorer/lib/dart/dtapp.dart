@@ -3,16 +3,14 @@ import 'package:explorer/widgets/state_manager.dart';
 import 'package:explorer/foundation/exui.dart';
 
 
-class WDApp extends StatefulWidget {
-  const WDApp({Key? key}) : super(key: key);
+class DTApp extends StatefulWidget {
+  const DTApp({Key? key}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
-    return WDAppState();
+    return DTAppState();
   }
 }
-
-
-class WDAppState extends State<WDApp> {
+class DTAppState extends State<DTApp> {
 
   //在widget中我们重载Widget build(BuildContext context)函数，返回创建的widget
   @override

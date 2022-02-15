@@ -25,9 +25,21 @@ class EXUI {
     print("width=$width,height=$height,topOffset=$topOffset,bottomOffset=$bottomOffset");
   }
 
-  static viewController({PreferredSizeWidget? navigationBar, Widget? body}) {
+  static viewController({PreferredSizeWidget? navigationBar, Widget? body, bool separator = true}) {
     return Scaffold(
-      appBar: navigationBar != null ? PreferredSize(preferredSize: const Size.fromHeight(44), child: navigationBar):null,
+      appBar: navigationBar != null ? PreferredSize(preferredSize: const Size.fromHeight(44), child:
+      Stack(children: [
+        navigationBar,
+        if(separator)Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: EXUI.pixel,
+              color: EXUI.separatorColor,
+            )
+        )
+      ])):null,
       body: body,
     );
   }

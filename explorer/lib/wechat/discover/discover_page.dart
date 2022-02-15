@@ -46,9 +46,9 @@ class _DiscoverPageState extends State<DiscoverPage> with AutomaticKeepAliveClie
     EXUI.initialzie(context);
 
     return EXUI.viewController(navigationBar:
-        AppBar(title: Text("发现", style: TextStyle(color: Colors.black)),
+        AppBar(title: Text("发现", style: TextStyle(color: EXUI.naviForegroundColor)),
             shadowColor:Color.fromRGBO(0, 0, 0, 0),
-            backgroundColor: _themeColor),
+            backgroundColor: EXUI.naviBackgroundColor),
         body:Container(
           color: EXUI.backgroundColor,
           child: ListView(

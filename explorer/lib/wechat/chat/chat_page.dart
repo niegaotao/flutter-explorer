@@ -103,11 +103,12 @@ class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<
     super.build(context);
 
     EXUI.initialzie(context);
-    return EXUI.viewController(navigationBar:AppBar(
+    return EXUI.viewController(
+        navigationBar:AppBar(
       centerTitle: true,
-      title: const Text("微信", style: TextStyle(color: Colors.black)),
+      title: Text("微信", style: TextStyle(color: EXUI.naviForegroundColor)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),
-      backgroundColor: EXUI.backgroundColor,
+      backgroundColor: EXUI.naviBackgroundColor,
       actions: [
         Container(margin: EdgeInsets.only(right: 16),
         child: PopupMenuButton(

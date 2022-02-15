@@ -3,14 +3,21 @@ PODS:
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
+  - NXKit (0.9.9):
+    - NXKit/Extensions (= 0.9.9)
+    - NXKit/Foundation (= 0.9.9)
+  - NXKit/Extensions (0.9.9):
+    - NXKit/Foundation
+  - NXKit/Foundation (0.9.9)
   - Toast (4.0.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - NXKit (from `../../../dev/NXKit`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Toast
 
 EXTERNAL SOURCES:
@@ -18,12 +25,15 @@ EXTERNAL SOURCES:
     :path: Flutter
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  NXKit:
+    :path: "../../../dev/NXKit"
 
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  NXKit: 24ae9ea257b48588ce87031084dc97003459838b
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: f06d1717eb797593867605aabcdd6540a2c153ee
 
 COCOAPODS: 1.11.2

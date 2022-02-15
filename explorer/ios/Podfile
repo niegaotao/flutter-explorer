@@ -4,6 +4,8 @@
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
+
+
 project 'Runner', {
   'Debug' => :debug,
   'Profile' => :release,
@@ -23,15 +25,19 @@ def flutter_root
   raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
 end
 
-require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper.rb'), flutter_root)
 
 flutter_ios_podfile_setup
 
 target 'Runner' do
   use_frameworks!
-  use_modular_headers!
+  #use_modular_headers!
 
+  source 'https://github.com/CocoaPods/Specs.git'
+  
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  
+  pod 'NXKit', :path => "../../../dev/NXKit"
 end
 
 post_install do |installer|
@@ -39,3 +45,4 @@ post_install do |installer|
     flutter_additional_ios_build_settings(target)
   end
 end
+
