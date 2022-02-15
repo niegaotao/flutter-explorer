@@ -14,15 +14,15 @@ import UIKit
 
         GeneratedPluginRegistrant.register(with: self)
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = EXApp.naviController
-        self.window?.backgroundColor = UIColor.white
-        self.window?.makeKeyAndVisible()
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.rootViewController = EXApp.naviController
+//        self.window?.backgroundColor = UIColor.white
+//        self.window?.makeKeyAndVisible()
+//
+//        EXApp.naviController.pushViewController(rootViewController, animated: false)
         
-        EXApp.naviController.pushViewController(rootViewController, animated: false)
         
-        
-        let vc = self.rootViewController
+        let vc = self.window?.rootViewController as! FlutterViewController
         self.mc = FlutterMethodChannel.init(name:"pages/owner", binaryMessenger:vc as! FlutterBinaryMessenger)
         self.mc?.setMethodCallHandler({[weak self] (call, result) in
             guard let self = self else {
