@@ -17,7 +17,7 @@ DEPENDENCIES:
   - NXKit (from `../../../dev/NXKit`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Toast
 
 EXTERNAL SOURCES:
@@ -34,6 +34,6 @@ SPEC CHECKSUMS:
   NXKit: 24ae9ea257b48588ce87031084dc97003459838b
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: f06d1717eb797593867605aabcdd6540a2c153ee
+PODFILE CHECKSUM: c091239b3205dfe7f0d8d37f6066b2db2606be4f
 
 COCOAPODS: 1.11.2

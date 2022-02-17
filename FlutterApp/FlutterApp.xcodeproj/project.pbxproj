@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E8FD0A17D47B69A519602C5 /* Pods_FlutterApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D242D12C86DA3D9761B5F6DE /* Pods_FlutterApp.framework */; };
 		C949D2772751076200A32DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949D2762751076200A32DCE /* AppDelegate.swift */; };
-		C949D2792751076200A32DCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949D2782751076200A32DCE /* SceneDelegate.swift */; };
-		C949D27B2751076200A32DCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949D27A2751076200A32DCE /* ViewController.swift */; };
+		C949D27B2751076200A32DCE /* EXAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949D27A2751076200A32DCE /* EXAppViewController.swift */; };
 		C949D27E2751076200A32DCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C949D27C2751076200A32DCE /* Main.storyboard */; };
 		C949D2802751076300A32DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949D27F2751076300A32DCE /* Assets.xcassets */; };
 		C949D2832751076300A32DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C949D2812751076300A32DCE /* LaunchScreen.storyboard */; };
@@ -20,8 +19,7 @@
 		771799C6C858FE15E0A21D1D /* Pods-FlutterApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterApp.debug.xcconfig"; path = "Target Support Files/Pods-FlutterApp/Pods-FlutterApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C949D2732751076200A32DCE /* FlutterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlutterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C949D2762751076200A32DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C949D2782751076200A32DCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C949D27A2751076200A32DCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C949D27A2751076200A32DCE /* EXAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXAppViewController.swift; sourceTree = "<group>"; };
 		C949D27D2751076200A32DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C949D27F2751076300A32DCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C949D2822751076300A32DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,8 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				C949D2762751076200A32DCE /* AppDelegate.swift */,
-				C949D2782751076200A32DCE /* SceneDelegate.swift */,
-				C949D27A2751076200A32DCE /* ViewController.swift */,
+				C949D27A2751076200A32DCE /* EXAppViewController.swift */,
 				C949D27C2751076200A32DCE /* Main.storyboard */,
 				C949D27F2751076300A32DCE /* Assets.xcassets */,
 				C949D2812751076300A32DCE /* LaunchScreen.storyboard */,
@@ -99,9 +96,11 @@
 			buildConfigurationList = C949D29D2751076300A32DCE /* Build configuration list for PBXNativeTarget "FlutterApp" */;
 			buildPhases = (
 				F05D6B58272B80D488C993B2 /* [CP] Check Pods Manifest.lock */,
+				C9AEC8FA8E5DB8C3789307A9 /* [CP-User] Run Flutter Build flutter_module Script */,
 				C949D26F2751076200A32DCE /* Sources */,
 				C949D2702751076200A32DCE /* Frameworks */,
 				C949D2712751076200A32DCE /* Resources */,
+				735390394FB54869D72D7EF3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,6 +158,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		735390394FB54869D72D7EF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlutterApp/Pods-FlutterApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlutterApp/Pods-FlutterApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlutterApp/Pods-FlutterApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9AEC8FA8E5DB8C3789307A9 /* [CP-User] Run Flutter Build flutter_module Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Run Flutter Build flutter_module Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../flutter_module/.iOS/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build\n";
+		};
 		F05D6B58272B80D488C993B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,9 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C949D27B2751076200A32DCE /* ViewController.swift in Sources */,
+				C949D27B2751076200A32DCE /* EXAppViewController.swift in Sources */,
 				C949D2772751076200A32DCE /* AppDelegate.swift in Sources */,
-				C949D2792751076200A32DCE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +373,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +403,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
