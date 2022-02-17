@@ -27,14 +27,24 @@ class EXAppViewController: NXViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let __flutter = self.flutter {
-            let mc = FlutterMethodChannel(name: "one_page", binaryMessenger: __flutter.binaryMessenger)
+            let mc = FlutterMethodChannel(name: "explorer", binaryMessenger: __flutter.binaryMessenger)
             mc.setMethodCallHandler { method, result in
                 if(method.method == "exit"){
                     NX.print(method.method)
+                    
+                    self.flutter?.dismiss(animated: true, completion: nil)
                 }
             }
             self.present(__flutter, animated: true, completion: nil)
+            
+//            let channel = FlutterBasicMessageChannel(name: "explorer", binaryMessenger: __flutter.binaryMessenger)
+//            channel.setMessageHandler { value, reply in
+//                //收到来自flutter的消息
+//            }
+//            channel.sendMessage("----")//发送给flutter的消息
+            
         }
+        
         
     }
 }
