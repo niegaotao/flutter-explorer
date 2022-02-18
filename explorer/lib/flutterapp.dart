@@ -17,7 +17,6 @@ class FlutterApp extends StatefulWidget {
   }
 }
 
-
 class FlutterAppState extends State<FlutterApp> {
   final wrapper = ElementWrapper<ElementArray<ElementDescriptor>>();
   MethodChannel mc = MethodChannel("pages/owner");

@@ -37,7 +37,7 @@ target 'Runner' do
   
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   
-  pod 'NXKit', :path => "../../../dev/NXKit"
+  pod 'NXKit', :path => "../../../../dev/NXKit"
 end
 
 post_install do |installer|
