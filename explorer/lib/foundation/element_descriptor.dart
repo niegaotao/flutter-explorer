@@ -14,6 +14,7 @@ typedef ElementEventCallback = void Function(String operation, Object value, Bui
 class ElementContexts extends EXRect {
   bool separator = false;
   ElementEventCallback? event;
+  String operation = "";
   ElementContexts();
 }
 
@@ -33,8 +34,10 @@ class ElementDescriptor {
   String subtitle = "";
   String value = "";
   String markup = "";
-  String operation = "";
-  ElementDescriptor({this.icon = "", this.title = "", this.subtitle = "", this.value = "", this.markup = "", this.operation = ""});
+  ElementDescriptor({this.icon = "", this.title = "", this.subtitle = "", this.value = "", this.markup = "", String operation = "", ElementEventCallback? event}){
+    this.ctxs.operation = operation;
+    this.ctxs.event = event;
+  }
 
   static Widget itemForRow(BuildContext context, ElementDescriptor descriptor) {
     return  ElementDescriptorView(descriptor);

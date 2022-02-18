@@ -83,40 +83,40 @@ class FlutterAppState extends State<FlutterApp> {
   void disposeEvent(String operation, Object value, BuildContext context){
     if(operation == "onTapUp"){
       if(value is ElementDescriptor){
-        if(value.operation == "dart"){
+        if(value.ctxs.operation == "dart"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return DTApp();
           }));
         }
-        else if(value.operation == "widgets"){
+        else if(value.ctxs.operation == "widgets"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return WDApp();
           }));
         }
-        else if(value.operation == "future"){
+        else if(value.ctxs.operation == "future"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return WDApp();
           }));
         }
-        else if(value.operation == "jianshu") {
+        else if(value.ctxs.operation == "jianshu") {
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return JSApp();
           }));
         }
-        else if(value.operation == "company"){
+        else if(value.ctxs.operation == "company"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return EnterpriseListPage();
           }));
         }
-        else if(value.operation == "wechat"){
+        else if(value.ctxs.operation == "wechat"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return WXApp();
           }));
         }
-        else if(value.operation == "image-picker"){
+        else if(value.ctxs.operation == "image-picker"){
           mc.invokeMapMethod("UIImagePickerController");
         }
-        else if(value.operation == "album"){
+        else if(value.ctxs.operation == "album"){
           mc.invokeMapMethod("NXAssetsViewController");
         }
       }
@@ -140,6 +140,12 @@ class FlutterAppState extends State<FlutterApp> {
 
   @override
   Widget build(BuildContext context) {
+    StatelessWidget;
+    StatelessElement;
+
+    StatefulWidget;
+    StatefulElement;
+
     return MaterialApp(
         debugShowCheckedModeBanner:false,
         theme: ThemeData(
