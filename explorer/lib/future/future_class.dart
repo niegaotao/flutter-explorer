@@ -3,9 +3,10 @@
 import 'dart:async';
 
 import 'dart:io';
+import 'dart:isolate';
 
 void future_start() {
-  test6();
+  test0();
 }
 
 void test0() async {
@@ -220,4 +221,8 @@ void test6(){
         print("5-Micro-task");
       });
     });
+}
+
+void func7() {
+
 }

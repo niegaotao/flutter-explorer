@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:explorer/foundation/exui.dart';
-import 'package:explorer/company/enterprise_list_page.dart';
+import 'package:explorer/remote/remoteapp.dart';
 
 
 class Record {
@@ -17,7 +17,7 @@ class Record {
   static Widget itemForRow(BuildContext context, Record record) {
     return  RecordViewcell(record, (ctxs){
       Navigator.push(context, MaterialPageRoute(builder: (context){
-        return EnterpriseListPage();
+        return RemoteApp();
       }));
     });
   }
@@ -43,7 +43,7 @@ class RecordViewcell extends StatelessWidget {
         print("onTapUp:$ctxs");
 
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return EnterpriseListPage();
+          return RemoteApp();
         }));
 
       },

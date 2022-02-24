@@ -1,20 +1,20 @@
 // TODO Implement this library.
 import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
-import 'package:explorer/company/enterprise_page.dart';
+import 'package:explorer/company/company_page.dart';
 
-class EnterpriseListPage extends StatefulWidget {
-  const EnterpriseListPage({Key? key}) : super(key: key);
+class CompanyApp extends StatefulWidget {
+  const CompanyApp({Key? key}) : super(key: key);
 
   @override
-  _EnterpriseListPageState createState() => _EnterpriseListPageState();
+  _CompanyAppState createState() => _CompanyAppState();
 }
 
-class _EnterpriseListPageState extends State<EnterpriseListPage> {
+class _CompanyAppState extends State<CompanyApp> {
   @override
   List items = List.from([]);
   Widget build(BuildContext context) {
-    return EXUI.viewController(navigationBar: AppBar(
+    return EXUI.View(navigationBar: AppBar(
         leading: GestureDetector(
           child: Icon(Icons.arrow_back_ios, color: Colors.white),
           onTapUp: (details){
@@ -37,7 +37,7 @@ class _EnterpriseListPageState extends State<EnterpriseListPage> {
     return GestureDetector(
       onTapUp: (detail){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return EnterprisePage();
+          return CompanyPage();
         }));
       },
       child: Container(
