@@ -85,7 +85,7 @@ class _FriendPageState extends State<FriendPage> with AutomaticKeepAliveClientMi
     Size contentSize = Size(30, 15 * Static.indexs.length.toDouble());
     EXUI.initialzie(context);
 
-    return EXUI.viewController(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: EXUI.naviForegroundColor)),
+    return EXUI.View(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: EXUI.naviForegroundColor)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),
       backgroundColor: EXUI.naviBackgroundColor,
       actions: [GestureDetector(

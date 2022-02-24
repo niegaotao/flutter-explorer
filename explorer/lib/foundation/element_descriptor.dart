@@ -35,12 +35,12 @@ class ElementDescriptor {
   String value = "";
   String markup = "";
   ElementDescriptor({this.icon = "", this.title = "", this.subtitle = "", this.value = "", this.markup = "", String operation = "", ElementEventCallback? event}){
-    this.ctxs.operation = operation;
-    this.ctxs.event = event;
+    ctxs.operation = operation;
+    ctxs.event = event;
   }
 
   static Widget itemForRow(BuildContext context, ElementDescriptor descriptor) {
-    return  ElementDescriptorView(descriptor);
+    return  ElementDescriptorView(descriptor:descriptor);
   }
 
   static Widget separator(){
@@ -51,14 +51,14 @@ class ElementDescriptor {
 class ElementDescriptorView extends StatelessWidget {
   final ElementDescriptor descriptor;
 
-  ElementDescriptorView(@required this.descriptor);
+  const ElementDescriptorView({required this.descriptor});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapUp: (details) {
-        if(this.descriptor.ctxs.event != null){
-          this.descriptor.ctxs.event!("onTapUp", this.descriptor, context);
+        if(descriptor.ctxs.event != null){
+          descriptor.ctxs.event!("onTapUp", descriptor, context);
         }
       },
       child: Container(
@@ -67,7 +67,7 @@ class ElementDescriptorView extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,19 +77,19 @@ class ElementDescriptorView extends StatelessWidget {
                     // child: _file == null ? Image(image:  AssetImage("assets/Hank.png"), width: 60):Image(image: FileImage(_file!), width: 60),
                     child: Image(image: AssetImage(descriptor.icon), width: 32),
                   ),
-                  SizedBox(width: 10),
-                  Text(descriptor.title, style: TextStyle(
+                  const SizedBox(width: 10),
+                  Text(descriptor.title, style: const TextStyle(
                     fontSize: 16,
                     color: Color.fromRGBO(20, 20, 20, 1),
                   ),),
                   Expanded(child: Container()),
-                  descriptor.subtitle.length > 0
+                  descriptor.subtitle.isNotEmpty
                       ? Text(descriptor.subtitle, style: TextStyle(fontSize: 15),)
                       : Container(),
-                  descriptor.markup.length > 0
+                  descriptor.markup.isNotEmpty
                       ? Image(image: AssetImage(descriptor.markup), width: 8)
                       : Container(),
-                  Image(image: AssetImage("assets/icon_right.png"), width: 16)
+                  const Image(image: AssetImage("assets/icon_right.png"), width: 16)
                 ],
               ),
             ),

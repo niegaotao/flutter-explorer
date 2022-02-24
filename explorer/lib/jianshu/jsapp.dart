@@ -1,6 +1,7 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:explorer/foundation/exui.dart';
 import 'package:explorer/wechat/chat/chat_page.dart';
 import 'package:explorer/wechat/friend/friend_page.dart';
 import 'package:explorer/wechat/discover/discover_page.dart';
@@ -17,11 +18,18 @@ class JSApp extends StatefulWidget {
 
 class JSAppState extends State<JSApp> {
   int _currentIndex = 0;
-  final _pages = [const ChatPage(), const FriendPage(), const DiscoverPage(), const OwnerPage()] ;
+  final _pages = [ChatPage(action: EXAction(operation:"chat", completion: (a,b){
+    print("JSAppState");
+  })), const FriendPage(), const DiscoverPage(), const OwnerPage()] ;
   final PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
+    ChatPage page = this._pages[0] as ChatPage;
+    page.action.completion = (a, b){
+      Navigator.pop(context);
+    };
+
     return MaterialApp(
         debugShowCheckedModeBanner:false,
         theme: ThemeData(

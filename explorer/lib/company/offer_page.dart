@@ -11,7 +11,7 @@ class OfferPage extends StatefulWidget {
 class _OfferPageState extends State<OfferPage> {
   @override
   Widget build(BuildContext context) {
-    return EXUI.viewController(navigationBar: AppBar(
+    return EXUI.View(navigationBar: AppBar(
         leading: GestureDetector(
           child: Icon(Icons.arrow_back_ios, color: Colors.white),
           onTapUp: (details){

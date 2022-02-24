@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:core';
 
 import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
@@ -9,18 +10,18 @@ import 'package:explorer/foundation/toast.dart';
 import 'package:http/http.dart' as http;
 import '../../future/http_manager.dart';
 import '../chat/search_page.dart';
-import 'package:explorer/company/enterprise_list_page.dart';
+import 'package:explorer/company/companyapp.dart';
 
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({Key? key}) : super(key: key);
+  final EXAction action;
+  const ChatPage({Key? key, required this.action}) : super(key: key);
 
   @override
   _ChatPageState createState() => _ChatPageState();
 }
 
 class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<ChatPage> {
-  Color _themeColor = Color.fromRGBO(235, 235, 235, 1.0);
   List<Message> _messages = [];
 
   @override
@@ -103,11 +104,19 @@ class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<
     super.build(context);
 
     EXUI.initialzie(context);
-    return EXUI.viewController(
+    return EXUI.View(
         navigationBar:AppBar(
+          leading: GestureDetector(
+            child: Icon(Icons.arrow_back_ios, color: EXUI.naviForegroundColor),
+            onTapUp: (details){
+              if(widget.action.completion != null) {
+                widget.action.completion!("pop",{});
+              }
+            },
+          ),
       centerTitle: true,
       title: Text("微信", style: TextStyle(color: EXUI.naviForegroundColor)),
-      shadowColor:Color.fromRGBO(0, 0, 0, 0),
+      shadowColor:const Color.fromRGBO(0, 0, 0, 0),
       backgroundColor: EXUI.naviBackgroundColor,
       actions: [
         Container(margin: EdgeInsets.only(right: 16),

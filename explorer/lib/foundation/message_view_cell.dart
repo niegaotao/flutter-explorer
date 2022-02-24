@@ -1,6 +1,6 @@
 import 'package:explorer/foundation/exui.dart';
 import 'package:flutter/material.dart';
-import 'package:explorer/company/enterprise_list_page.dart';
+import 'package:explorer/remote/remoteapp.dart';
 
 class Message {
   int id = 0;
@@ -23,7 +23,7 @@ class Message {
   static Widget itemForRow(BuildContext context, Message message) {
     return  MessageViewCell(message, (ctxs){
       Navigator.push(context, MaterialPageRoute(builder: (context){
-        return EnterpriseListPage();
+        return RemoteApp();
       }));
     });
   }
@@ -42,7 +42,7 @@ class MessageViewCell extends StatelessWidget {
     return GestureDetector(
       onTapUp: (detail){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return EnterpriseListPage();
+          return RemoteApp();
         }));
       },
       child: Container(

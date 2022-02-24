@@ -2,11 +2,12 @@ import 'package:explorer/foundation/exui.dart';
 import 'package:explorer/foundation/element_descriptor.dart';
 import 'package:flutter/material.dart';
 
+import 'package:explorer/education/eduapp.dart';
 import 'package:explorer/dart/dtapp.dart';
 import 'package:explorer/widgets/wdapp.dart';
 import 'package:explorer/jianshu/jsapp.dart';
 import 'package:explorer/wechat/wxapp.dart';
-import 'package:explorer/company/enterprise_list_page.dart';
+import 'package:explorer/company/companyapp.dart';
 import 'package:flutter/services.dart';
 
 class FlutterApp extends StatefulWidget {
@@ -19,10 +20,22 @@ class FlutterApp extends StatefulWidget {
 
 class FlutterAppState extends State<FlutterApp> {
   final wrapper = ElementWrapper<ElementArray<ElementDescriptor>>();
+
   MethodChannel mc = MethodChannel("pages/owner");
 
   @override
   void initState() {
+    if(true){
+      ElementArray<ElementDescriptor> array = ElementArray<ElementDescriptor>();
+      array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "EDU-10以内加法", operation: "edu+10"));
+      array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "EDU-20以内加法", operation: "edu+20"));
+      array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "EDU-100以内加法", operation: "edu+100"));
+      array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "EDU-10以内减法", operation: "edu-10"));
+      array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "EDU-20以内减法", operation: "edu-20"));
+      array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "EDU-100以内减法", operation: "edu-100"));
+      wrapper.elements.add(array);
+    }
+
     if(true){
       ElementArray<ElementDescriptor> array = ElementArray<ElementDescriptor>();
       array.elements.add(ElementDescriptor(icon: "assets/Appicon-60@2x.png", title: "Dart", operation: "dart"));
@@ -83,7 +96,21 @@ class FlutterAppState extends State<FlutterApp> {
   void disposeEvent(String operation, Object value, BuildContext context){
     if(operation == "onTapUp"){
       if(value is ElementDescriptor){
-        if(value.ctxs.operation == "dart"){
+        if(["edu+10","edu+20","edu+100"].contains(value.ctxs.operation)){
+          String operation = value.ctxs.operation.substring(3);
+          String title = value.ctxs.operation.substring(4) + "以内的加法";
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return EDUApp(action: EXAction(operation: operation, data: EDUAppValue(title: title), completion: null));
+          }));
+        }
+        else if(["edu-10","edu-20","edu-100",].contains(value.ctxs.operation)){
+          String operation = value.ctxs.operation.substring(3);
+          String title = value.ctxs.operation.substring(4) + "以内的减法";
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return EDUApp(action: EXAction(operation: operation, data: EDUAppValue(title: title), completion: null));
+          }));
+        }
+        else if(value.ctxs.operation == "dart"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return DTApp();
           }));
@@ -105,7 +132,7 @@ class FlutterAppState extends State<FlutterApp> {
         }
         else if(value.ctxs.operation == "company"){
           Navigator.push(context, MaterialPageRoute(builder: (context){
-            return EnterpriseListPage();
+            return CompanyApp();
           }));
         }
         else if(value.ctxs.operation == "wechat"){
@@ -140,11 +167,16 @@ class FlutterAppState extends State<FlutterApp> {
 
   @override
   Widget build(BuildContext context) {
-    StatelessWidget;
-    StatelessElement;
+    // Icon;StatelessWidget;
+    // StatelessElement;
+    //
+    // Container;StatefulWidget;
+    // StatefulElement;
+    //
+    // Row;Flex;MultiChildRenderObjectWidget;RenderObjectWidget;
+    // MultiChildRenderObjectElement;RenderObjectElement;
+    // RenderBox;RenderObject;
 
-    StatefulWidget;
-    StatefulElement;
 
     return MaterialApp(
         debugShowCheckedModeBanner:false,
@@ -153,7 +185,7 @@ class FlutterAppState extends State<FlutterApp> {
           highlightColor: const Color.fromRGBO(0, 0, 0, 0),
           splashColor: const Color.fromRGBO(0, 0, 0, 0),
         ),
-        home: EXUI.viewController(
+        home: EXUI.View(
             navigationBar: AppBar(
                 title: Text("Explorer", style: TextStyle(color: EXUI.naviForegroundColor)),
                 shadowColor:const Color.fromRGBO(0, 0, 0, 0),
@@ -171,6 +203,11 @@ class FlutterAppState extends State<FlutterApp> {
               child: widget!);
         }
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
 

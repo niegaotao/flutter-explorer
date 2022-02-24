@@ -3,12 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:explorer/foundation/record_view_cell.dart';
-import 'package:explorer/wechat/profile/profile_page.dart';
-import 'package:explorer/company/enterprise_list_page.dart';
-import 'package:explorer/foundation/record_view_cell.dart';
 import 'package:explorer/foundation/exui.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+import 'package:explorer/remote/remoteapp.dart';
 
 class OwnerPage extends StatefulWidget {
   const OwnerPage({Key? key}) : super(key: key);
@@ -90,7 +88,7 @@ class _OwnerPageState extends State<OwnerPage>  with AutomaticKeepAliveClientMix
     }
 
 
-    return EXUI.viewController(
+    return EXUI.View(
         navigationBar:null,
         body:Container(
       color: EXUI.backgroundColor,
@@ -126,7 +124,7 @@ class _OwnerPageState extends State<OwnerPage>  with AutomaticKeepAliveClientMix
     return GestureDetector(
       onTapUp: (details) {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return EnterpriseListPage();
+          return RemoteApp();
         }));
       },
       child: Container(

@@ -30,7 +30,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget build(BuildContext context) {
 
-    return EXUI.viewController(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: Colors.black)),
+    return EXUI.View(navigationBar:AppBar(title: Text("通讯录", style: TextStyle(color: Colors.black)),
       shadowColor:Color.fromRGBO(0, 0, 0, 0),
       backgroundColor: _themeColor,
       actions: [GestureDetector(
