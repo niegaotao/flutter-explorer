@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:explorer/wechat/profile/profile_page.dart';
 import 'package:explorer/company/companyapp.dart';
 import 'package:explorer/foundation/record_view_cell.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({Key? key}) : super(key: key);
@@ -43,14 +43,14 @@ class _DiscoverPageState extends State<DiscoverPage> with AutomaticKeepAliveClie
       Record record = records[index];
       record.isSeparated = [2, 4,7].contains(index);
     }
-    EXUI.initialzie(context);
+    EXApp.initialize(context);
 
-    return EXUI.View(navigationBar:
-        AppBar(title: Text("发现", style: TextStyle(color: EXUI.naviForegroundColor)),
+    return EXApp.View(navigationBar:
+        AppBar(title: Text("发现", style: TextStyle(color: EXApp.naviForegroundColor)),
             shadowColor:Color.fromRGBO(0, 0, 0, 0),
-            backgroundColor: EXUI.naviBackgroundColor),
+            backgroundColor: EXApp.naviBackgroundColor),
         body:Container(
-          color: EXUI.backgroundColor,
+          color: EXApp.backgroundColor,
           child: ListView(
             children: [
               Record.itemForRow(context, records[0]),

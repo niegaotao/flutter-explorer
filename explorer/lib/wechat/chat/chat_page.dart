@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:explorer/foundation/message_view_cell.dart';
@@ -103,11 +103,11 @@ class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<
   Widget build(BuildContext context) {
     super.build(context);
 
-    EXUI.initialzie(context);
-    return EXUI.View(
+    EXApp.initialize(context);
+    return EXApp.View(
         navigationBar:AppBar(
           leading: GestureDetector(
-            child: Icon(Icons.arrow_back_ios, color: EXUI.naviForegroundColor),
+            child: Icon(Icons.arrow_back_ios, color: EXApp.naviForegroundColor),
             onTapUp: (details){
               if(widget.action.completion != null) {
                 widget.action.completion!("pop",{});
@@ -115,9 +115,9 @@ class _ChatPageState extends State<ChatPage> with AutomaticKeepAliveClientMixin<
             },
           ),
       centerTitle: true,
-      title: Text("微信", style: TextStyle(color: EXUI.naviForegroundColor)),
+      title: Text("微信", style: TextStyle(color: EXApp.naviForegroundColor)),
       shadowColor:const Color.fromRGBO(0, 0, 0, 0),
-      backgroundColor: EXUI.naviBackgroundColor,
+      backgroundColor: EXApp.naviBackgroundColor,
       actions: [
         Container(margin: EdgeInsets.only(right: 16),
         child: PopupMenuButton(

@@ -1,5 +1,5 @@
 // TODO Implement this library.
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:flutter/material.dart';
 import 'package:explorer/company/company_page.dart';
 
@@ -14,7 +14,7 @@ class _CompanyAppState extends State<CompanyApp> {
   @override
   List items = List.from([]);
   Widget build(BuildContext context) {
-    return EXUI.View(navigationBar: AppBar(
+    return EXApp.View(navigationBar: AppBar(
         leading: GestureDetector(
           child: Icon(Icons.arrow_back_ios, color: Colors.white),
           onTapUp: (details){
@@ -25,7 +25,7 @@ class _CompanyAppState extends State<CompanyApp> {
             style: TextStyle(color: Colors.white)
         ),
         shadowColor:Color.fromRGBO(0, 0, 0, 0),
-        backgroundColor: EXUI.mainColor),
+        backgroundColor: EXApp.mainColor),
     body: ListView.separated(
       itemBuilder: itemForRow,
       separatorBuilder: separatorForRow,
@@ -114,7 +114,7 @@ class _CompanyAppState extends State<CompanyApp> {
   }
 
   Widget separatorForRow(BuildContext context, int index) {
-    return Container(height: EXUI.pixel, width: 414, color: EXUI.separatorColor);
+    return Container(height: EXApp.pixel, width: 414, color: EXApp.separatorColor);
   }
 
   List<Widget> createWidgets() {

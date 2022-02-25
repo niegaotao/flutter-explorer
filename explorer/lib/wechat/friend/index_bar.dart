@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:explorer/wechat/friend/friend_data.dart';
 
 typedef IndexBarCallback = void Function(int index, String value);
@@ -66,7 +66,7 @@ class _IndexBarState extends State<IndexBar> {
     return Positioned(
       right: 0.0,
       width: 110,
-      top: (EXUI.height - EXUI.topOffset - 44 - 50 - 34 - contentSize.height)/2.0,
+      top: (EXApp.height - EXApp.topOffset - 44 - 50 - 34 - contentSize.height)/2.0,
       height: contentSize.height,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

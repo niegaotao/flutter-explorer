@@ -1,4 +1,4 @@
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:flutter/material.dart';
 import 'package:explorer/remote/remoteapp.dart';
 
@@ -48,7 +48,7 @@ class MessageViewCell extends StatelessWidget {
       child: Container(
         color: Colors.white,
         height: 56,
-        width: EXUI.width,
+        width: EXApp.width,
         child: Stack(
           children: [
             Row(
@@ -68,7 +68,7 @@ class MessageViewCell extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: EXUI.width-70-16,
+                      width: EXApp.width-70-16,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +78,7 @@ class MessageViewCell extends StatelessWidget {
                           ]),
                     ),
                     Container(
-                      width: EXUI.width-70-16,
+                      width: EXApp.width-70-16,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,8 +101,8 @@ class MessageViewCell extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: EXUI.pixel,
-                  color: EXUI.separatorColor,
+                  height: EXApp.pixel,
+                  color: EXApp.separatorColor,
                 ))
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:explorer/widgets/state_manager.dart';
-import 'package:explorer/foundation/exui.dart';
 
 
 class WDApp extends StatefulWidget {
@@ -17,7 +16,6 @@ class WDAppState extends State<WDApp> {
   //在widget中我们重载Widget build(BuildContext context)函数，返回创建的widget
   @override
   Widget build(BuildContext context) {
-    //UI.initialzie(context);
     return MaterialApp(
       debugShowCheckedModeBanner:false,
       home: Scaffold(

@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:explorer/remote/remoteapp.dart';
 
 
@@ -23,7 +23,7 @@ class Record {
   }
 
   static Widget separatorForRow(){
-    return Container(height: 10, width: 414, color: EXUI.backgroundColor);
+    return Container(height: 10, width: 414, color: EXApp.backgroundColor);
   }
 }
 
@@ -80,8 +80,8 @@ class RecordViewcell extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: ctxs.isSeparated ? EXUI.pixel : 0,
-                  color: EXUI.separatorColor,
+                  height: ctxs.isSeparated ? EXApp.pixel : 0,
+                  color: EXApp.separatorColor,
                 ))
           ],
         ),

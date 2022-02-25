@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 
 class Static {
   static List<Friend> funcs = [
@@ -126,7 +126,7 @@ class FriendViewCell extends StatelessWidget {
             Column(
               children: [
                 ctxs.isLettered ? Container(
-                  color: EXUI.backgroundColor,
+                  color: EXApp.backgroundColor,
                   height: 32,
                   padding: EdgeInsets.only(left: 16, right: 16),
                   alignment: Alignment.centerLeft,
@@ -160,8 +160,8 @@ class FriendViewCell extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: ctxs.isSeparated ? EXUI.pixel : 0,
-                  color: EXUI.separatorColor,
+                  height: ctxs.isSeparated ? EXApp.pixel : 0,
+                  color: EXApp.separatorColor,
                 ))
           ],
         ),

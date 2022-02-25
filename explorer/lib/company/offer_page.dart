@@ -1,4 +1,4 @@
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:flutter/material.dart';
 
 class OfferPage extends StatefulWidget {
@@ -11,7 +11,7 @@ class OfferPage extends StatefulWidget {
 class _OfferPageState extends State<OfferPage> {
   @override
   Widget build(BuildContext context) {
-    return EXUI.View(navigationBar: AppBar(
+    return EXApp.View(navigationBar: AppBar(
         leading: GestureDetector(
           child: Icon(Icons.arrow_back_ios, color: Colors.white),
           onTapUp: (details){
@@ -22,7 +22,7 @@ class _OfferPageState extends State<OfferPage> {
             style: TextStyle(color: Colors.white)
         ),
         shadowColor:Color.fromRGBO(0, 0, 0, 0),
-        backgroundColor: EXUI.mainColor),
+        backgroundColor: EXApp.mainColor),
     separator: false,
     body: Text("Offer2222")
     );

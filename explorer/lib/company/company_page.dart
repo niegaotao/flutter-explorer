@@ -1,4 +1,4 @@
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:flutter/material.dart';
 import 'package:explorer/company/company.dart';
 import 'package:explorer/company/offer_page.dart';
@@ -16,7 +16,7 @@ class _CompanyState extends State<CompanyPage> {
 
   @override
   Widget build(BuildContext context) {
-    return EXUI.View(
+    return EXApp.View(
         navigationBar:
         AppBar(
             leading: GestureDetector(
@@ -29,7 +29,7 @@ class _CompanyState extends State<CompanyPage> {
                 style: TextStyle(color: Colors.white)
             ),
             shadowColor:Color.fromRGBO(0, 0, 0, 0),
-            backgroundColor: EXUI.mainColor),
+            backgroundColor: EXApp.mainColor),
         body:
         Stack(
           alignment: Alignment.center,
@@ -254,7 +254,7 @@ class _CompanyState extends State<CompanyPage> {
           child: Container(
             width: 40,
             height: 40,
-            color: EXUI.mainColor,
+            color: EXApp.mainColor,
             child: Center(
               child: Text("投递简历",style: TextStyle(color: Colors.white),),
             ),
@@ -334,7 +334,7 @@ class _CompanyState extends State<CompanyPage> {
                   child: Container(
                     width: 100,
                     height: 32,
-                    color: EXUI.mainColor,
+                    color: EXApp.mainColor,
                     alignment: Alignment.center,
                     child: Text("投递简历", style: TextStyle(color: Colors.white, fontSize: 14),),
                   ),

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:explorer/foundation/record_view_cell.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:explorer/remote/remoteapp.dart';
@@ -88,10 +88,10 @@ class _OwnerPageState extends State<OwnerPage>  with AutomaticKeepAliveClientMix
     }
 
 
-    return EXUI.View(
+    return EXApp.View(
         navigationBar:null,
         body:Container(
-      color: EXUI.backgroundColor,
+      color: EXApp.backgroundColor,
       child: Stack(
         children: [
           MediaQuery.removePadding(

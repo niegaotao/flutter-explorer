@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 
 class EXRect {
   double x = 0;
@@ -44,7 +44,7 @@ class ElementDescriptor {
   }
 
   static Widget separator(){
-    return Container(height: 10, width: 414, color: EXUI.backgroundColor);
+    return Container(height: 10, width: 414, color: EXApp.backgroundColor);
   }
 }
 
@@ -98,8 +98,8 @@ class ElementDescriptorView extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: Container(
-                  height: descriptor.ctxs.separator ? EXUI.pixel : 0,
-                  color: EXUI.separatorColor,
+                  height: descriptor.ctxs.separator ? EXApp.pixel : 0,
+                  color: EXApp.separatorColor,
                 ))
           ],
         ),

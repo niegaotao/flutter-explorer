@@ -1,7 +1,7 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 import 'package:explorer/wechat/chat/chat_page.dart';
 import 'package:explorer/wechat/friend/friend_page.dart';
 import 'package:explorer/wechat/discover/discover_page.dart';

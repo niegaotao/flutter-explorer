@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:explorer/foundation/exui.dart';
+import 'package:explorer/foundation/exapp.dart';
 
-class Calculation {
-  final random = Random();
-  int lhsValue = 0;
-  int rhsvalue = 0;
+class EXCalculatorValue {
   int value = 0;
   String description = "";
+}
+
+class EXCalculator {
+  final random = Random();
+  EXCalculatorValue value = EXCalculatorValue();
+  EXCalculatorValue otherValue = EXCalculatorValue();
+  EXCalculatorValue operator = EXCalculatorValue();
+  EXCalculatorValue returnValue = EXCalculatorValue();
+  String description = "";
   bool isSecurity = true;
+
   int createValue(int minValue, int maxValue) {
     if (maxValue > minValue) {
       return minValue + random.nextInt(maxValue - minValue);
@@ -23,53 +30,57 @@ class EDUAppValue {
 }
 
 class EDUApp extends StatefulWidget {
-  final EXAction<EDUAppValue> action;
-  const EDUApp({Key? key, required this.action}) : super(key: key);
+  final EXAction<EDUAppValue> ctxs;
+  const EDUApp({Key? key, required this.ctxs}) : super(key: key);
 
   @override
   _EDUAppState createState() => _EDUAppState();
 }
 
 class _EDUAppState extends State<EDUApp> {
-  final Calculation calculation = Calculation();
+  final EXCalculator calculation = EXCalculator();
 
   @override
   void initState() {
-    print("operation:${widget.action.operation}");
-    this.createCalculation();
+    action(this.widget.ctxs.operation, null, null);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    EXUI.initialzie(context);
-    return EXUI.View(
+    EXApp.initialize(context);
+    String value = calculation.description + (calculation.isSecurity ? "__" : "${calculation.returnValue.value}");
+    if(widget.ctxs.operation == "word"){
+      value = calculation.description;
+    }
+    return EXApp.View(
       navigationBar: AppBar(
         leading: GestureDetector(
-          child: Icon(Icons.arrow_back_ios, color: EXUI.naviForegroundColor),
+          child: Icon(Icons.arrow_back_ios, color: EXApp.naviForegroundColor),
           onTapUp: (details) {
             Navigator.pop(context);
           },
         ),
         centerTitle: true,
-        title: Text(widget.action.data?.title ?? "",
-            style: TextStyle(color: EXUI.naviForegroundColor)),
-        shadowColor: Color.fromRGBO(0, 0, 0, 0),
-        backgroundColor: EXUI.naviBackgroundColor,
+        title: Text(widget.ctxs.data?.title ?? "",
+            style: TextStyle(color: EXApp.naviForegroundColor)),
+        shadowColor: const Color.fromRGBO(0, 0, 0, 0),
+        backgroundColor: EXApp.naviBackgroundColor,
       ),
       body: Stack(
         children: [
           Container(
-            height: EXUI.height - EXUI.topOffset - 44,
-            width: EXUI.width,
-            padding: EdgeInsets.fromLTRB(0, 0, 0, EXUI.bottomOffset + 44),
+            height: EXApp.height - EXApp.topOffset - 44,
+            width: EXApp.width,
+            padding: EdgeInsets.fromLTRB(0, 0, 0, EXApp.bottomOffset + 44),
             child: Center(
               child: Text(
-                this.calculation.description + (this.calculation.isSecurity ? "__" : "${this.calculation.value}"),
-                style: TextStyle(fontSize: 60, color: Colors.black),
+                  value,
+                style: const TextStyle(fontSize: 60, color: Colors.black),
+                  textAlign: TextAlign.center
               ),
             ),
-            color: EXUI.foregroundColor,
+            color: EXApp.foregroundColor,
           ),
           Positioned(
               left: 16,
@@ -81,14 +92,14 @@ class _EDUAppState extends State<EDUApp> {
                     borderRadius: BorderRadius.circular(4),
                     child: Container(
                         height: 40,
-                        width: (EXUI.width - 32 - 10)/2.0,
-                        color: EXUI.mainColor,
-                        child: Center(child: Text(this.calculation.isSecurity ? "显示答案":"隐藏答案", style:TextStyle(color: Colors.white)),)
+                        width: (EXApp.width - 32 - 10)/2.0,
+                        color: EXApp.mainColor,
+                        child: Center(child: Text(calculation.isSecurity ? "显示答案":"隐藏答案", style:TextStyle(color: Colors.white)),)
                     ),
                   ),
                   onTapUp: (detail){
-                    this.setState(() {
-                      this.calculation.isSecurity = !this.calculation.isSecurity;
+                    setState(() {
+                      calculation.isSecurity = !calculation.isSecurity;
                     });
                   },
                 ),
@@ -100,13 +111,13 @@ class _EDUAppState extends State<EDUApp> {
                     borderRadius: BorderRadius.circular(4),
                     child: Container(
                         height: 40,
-                        width: (EXUI.width - 32 - 10)/2.0,
-                        color: EXUI.mainColor,
+                        width: (EXApp.width - 32 - 10)/2.0,
+                        color: EXApp.mainColor,
                         child: Center(child: Text("换一题", style:TextStyle(color: Colors.white)),)
                     ),
                   ),
                   onTapUp: (detail){
-                    this.createCalculation();
+                    action(widget.ctxs.operation, null, null);
                   },
                 )
               ],)
@@ -116,52 +127,77 @@ class _EDUAppState extends State<EDUApp> {
     );
   }
 
-  void createCalculation() {
-    if (["+10", "+20", "+100"].contains(widget.action.operation)) {
+  void action(String operation, dynamic data, EXActionHandler? completion){
+    if(["10", "20", "100"].contains(operation)){
+      calculation.operator.value = calculation.createValue(0, 2);// 0,1
+      if(calculation.operator.value == 1){
+        action("+" + operation, data, completion);
+      }
+      else if(calculation.operator.value == 0){
+        action("-" + operation, data, completion);
+      }
+      else {
+        print("程序出错了");
+      }
+    }
+    else if (["+10", "+20", "+100"].contains(operation)) {
       calculation.isSecurity = true;
       int maxValue = 10;
-      if (widget.action.operation == "+20") {
+      if (operation == "+20") {
         maxValue = 20;
-      } else if (widget.action.operation == "+100") {
+      } else if (operation == "+100") {
         maxValue = 100;
       }
       //生成被加数
       //0...11 ==> 0...10
-      calculation.lhsValue = calculation.createValue(0, maxValue + 1);
+      calculation.value.value = calculation.createValue(0, maxValue + 1);
 
       //生成加数
       //4 ==> 0...6  <== 0...7
-      calculation.rhsvalue =
-          calculation.createValue(0, maxValue - calculation.lhsValue + 1);
+      calculation.otherValue.value = calculation.createValue(0, maxValue - calculation.value.value + 1);
 
       //结果处理
-      calculation.value = calculation.lhsValue + calculation.rhsvalue;
-      calculation.description =
-          "${calculation.lhsValue} + ${calculation.rhsvalue} = ";
+      calculation.returnValue.value = calculation.value.value + calculation.otherValue.value;
+      calculation.description = "${calculation.value.value} + ${calculation.otherValue.value} = ";
       setState(() {});
     }
-    else if(["-10", "-20", "-100"].contains(widget.action.operation)){
+    else if(["-10", "-20", "-100"].contains(operation)){
       calculation.isSecurity = true;
 
       int maxValue = 10;
-      if (widget.action.operation == "-20") {
+      if (operation == "-20") {
         maxValue = 20;
-      } else if (widget.action.operation == "-100") {
+      } else if (operation == "-100") {
         maxValue = 100;
       }
       //生成被加数
       //0...11 ==> 0...10
-      calculation.lhsValue = calculation.createValue(0, maxValue + 1);
+      calculation.value.value = calculation.createValue(0, maxValue + 1);
 
       //生成加数
       //4 ==> 0...6  <== 0...7
-      calculation.rhsvalue =
-          calculation.createValue(0, calculation.lhsValue + 1);
+      calculation.otherValue.value = calculation.createValue(0, calculation.value.value + 1);
 
       //结果处理
-      calculation.value = calculation.lhsValue - calculation.rhsvalue;
-      calculation.description =
-      "${calculation.lhsValue} - ${calculation.rhsvalue} = ";
+      calculation.returnValue.value = calculation.value.value - calculation.otherValue.value;
+      calculation.description = "${calculation.value.value} - ${calculation.otherValue.value} = ";
+      setState(() {});
+    }
+    else if(widget.ctxs.operation == "word"){
+      int maxValue = 234;
+      calculation.isSecurity = true;
+
+      //生成被加数
+      //0...11 ==> 0...10
+      calculation.value.value = calculation.createValue(0, maxValue);
+
+      //生成加数
+      //4 ==> 0...6  <== 0...7
+      calculation.otherValue.value = 0;
+
+      //结果处理
+      calculation.returnValue.value = 0;
+      calculation.description = EXApp.words[calculation.value.value];
       setState(() {});
     }
   }
