@@ -11,6 +11,10 @@ import UIKit
     var mc : FlutterMethodChannel? = nil
     override func application( _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("application(_:,didFinishLaunchingWithOptions:)")
+        
+        NX.Imp.authorization = { (type, queue, isAlertable, completion) in
+            EXApp.authorization(type, queue, completion, isAlertable)
+        }
 
         GeneratedPluginRegistrant.register(with: self)
         
@@ -40,6 +44,14 @@ import UIKit
                 vc.present(self.picker, animated:true)
             }
             else if call.method == "NXAssetsViewController" {
+                NXAsset.album { action, value in
+                    value.modalPresentationStyle = .fullScreen
+                    vc.present(value, animated: true)
+                } completion: { action, value in
+                    value.contentViewController?.dismiss(animated: true, completion: nil)
+                }
+            }
+            else if call.method == "oo" {
                 NXActionView.alert(title: "温馨提示", subtitle: "暂时没有实现吗", actions: ["好的"], completion: nil)
             }
         });

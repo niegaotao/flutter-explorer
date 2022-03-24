@@ -3,12 +3,12 @@ PODS:
   - fluttertoast (0.0.2):
     - Flutter
     - Toast
-  - NXKit (0.9.9):
-    - NXKit/Extensions (= 0.9.9)
-    - NXKit/Foundation (= 0.9.9)
-  - NXKit/Extensions (0.9.9):
+  - NXKit (1.0.0):
+    - NXKit/Extensions (= 1.0.0)
+    - NXKit/Foundation (= 1.0.0)
+  - NXKit/Extensions (1.0.0):
     - NXKit/Foundation
-  - NXKit/Foundation (0.9.9)
+  - NXKit/Foundation (1.0.0)
   - Toast (4.0.0)
 
 DEPENDENCIES:
@@ -31,9 +31,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
-  NXKit: 728d4e632de8595a9ef2e65515fe85b174924142
+  NXKit: 0a2fcce9c3b3f05d8e9073a69654081ea7511633
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
 PODFILE CHECKSUM: 8bc2eb17d51b87825507e38dbf2217e0406c4e2a
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
